@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 관리</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
+
+</head>
+<style>
+    @font-face {
+        font-family: 'SUITE-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+    }
+   
+    /* THE COLUMNS AND GRIDS!! */
+    *{
+        font-family: 'SUITE-Regular', 'Franklin Gothic Medium', 'Arial Narrow';
+    }
+    .card{
+        background-color:#ffdc00;
+        margin:3px;
+        margin-bottom:10px;
+        height:calc(100vh*0.98);
+        box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.2) !important;
+        padding:10px;}
+    
+    .bigdaddy01, .bigdaddy02{
+        padding-right: 0px;}
+        .bigdaddy02 a{
+        color:#1c1c1b;}
+        .bigdaddy02 .card{
+            background-color: #ffffff;
+        }
+    .bigdaddy03 .card{
+        background-color: #ffffff;
+        color:#1c1c1b;
+        }
+
+    /* DO NOT GIVE THESE MARGINS. GIVE PARENT PADDINGS INSTEAD */
+    /* OTHERWISE THEY WILL OVERFLOW */
+
+    /* THIS IS THE UL */
+    .cat-names-list{
+        color:#fffff0;
+        list-style-type: none;}
+        .cat-names{
+            margin-top:10px;
+            margin-bottom:10px;
+            padding:10px;
+            padding-top:40px;
+            box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            text-align: left;
+            background-color: #1c1c1b;
+        }
+        .cat-names:active, .cat-names a:active{
+            color:#1c1c1b;
+            background-color: #ffdc00;}
+        .cat-names:hover, .cat-names a:hover{
+            color:#1c1c1b;
+            background-color: #ffdc00;}
+
+    /* GET RID OF THE BLUE UNDERLINE */
+    a{
+        text-decoration:none;
+        color:inherit;
+    }
+
+    .menu-card{
+        background-color: #ffffff;
+        border-radius: 6px;
+        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.1);
+        margin:10px;
+        color:#1c1c1b;
+        margin-bottom:5px;}
+        .menu-card:hover{
+            background-color: #ffdc00;
+        }
+    .photo-zone{
+        display:inline;
+        padding-bottom: 25px;
+    }
+    .arrow-row{
+        text-align: end;
+    }
+    .menu-price{
+        color:rgb(255, 88, 79);
+    }
+    .management-row{
+        text-align: center;
+        color:#1c1c1b;}
+    .manage-menus, .manage-orders{
+        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.1);
+        border-radius: 3px;
+        margin-bottom: 50px;
+    }
+    .manage-menus:active, .manage-orders:active, .manage-menus:hover, .manage-orders:hover{
+        background-color: #1c1c1b1c;
+        color:#1c1c1b;
+    }
+    .home{
+        text-align: center;
+    }
+    .form-control{
+        padding-left:0px;
+    }
+    .menu-options .form-group{
+        padding-right:0px;padding-left:0px;
+    }
+    .last_buttons input{
+        border-width:50px;}
+        .last_buttons input.btn{
+            background-color:red;
+        }
+
+</style>
+<body>
+
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-2 bigdaddy01">
+                <div class="card">
+
+                    <div class="row management-row">
+                        <div class="col-lg-6 manage-menus">
+                            <div class="row">
+                                <div class="col-lg-12 manage-menus-icon">
+                                    <img src="../img/menu-icon.png" width="70px" style="margin-bottom: 10px;" alt="menu">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 manage-menus-text"><b>메뉴관리</b></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 manage-orders">
+                            <div class="row">
+                                <div class="col-lg-12 manage-orders-icon">
+                                    <img src="../img/orders-icon.png" width="70px" style="margin-bottom: 10px;" alt="orders">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 manage-menus-text"><b>주문관리</b></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="cat-names-list">
+                                <li class="cat-names">
+                                    <a href="#">커피류</a>
+                                </li>
+                                <li class="cat-names">
+                                    <a href="#">디저트류</a>
+                                </li>
+                                <li class="cat-names">
+                                    <a href="#">밥류</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div style="height:400px"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 home">
+                            <div class="home-icon">
+                                <img src="../img/home_brown.png" width="150px" alt="home">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 home">
+                            <span><h3>집 가잔꼐</h3></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 bigdaddy02">
+                <div class="card">
+
+                    <div class="row" id="rownum1">
+                        <div class="col-lg-12">
+                            <a href="#">
+                                <div class="card-body menu-card">
+                                    <div class="row">
+                                        <div class="col-lg-3 photo-zone">
+                                            <img src="../img/blood.png" width="220px" alt="menu-pic">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="row">
+                                                <div class="col-lg-4 menu-title"><h3>뚝배기아메리카노</h3></div>
+                                                <div class="col-lg-3"></div> <!-- FOR SPACING -->
+                                                <div class="col-lg-3"></div> <!-- FOR SPACING -->
+                                                <div class="col-lg-2 menu-price"><h4>2,000원</h4></div>
+                                            </div>
+                                            <div class="row menu-desc-row">
+                                                <div class="col-lg-12 menu-desc">메뉴설명</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 arrow-row">
+                                            <img src="../img/arrowdown.png" style="width:25px" alt="arrow">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row" id="rownum2">
+                        <div class="col-lg-12">
+                            <a href="#">
+                                <div class="card-body menu-card">
+                                    <div class="row">
+                                        <div class="col-lg-3 photo-zone">
+                                            <img src="../img/blood.png" width="220px" alt="menu-pic">
+                                        </div>
+                                        <div class="col-lg-9">
+                                            <div class="row">
+                                                <div class="col-lg-4 menu-title"><h3>뚝배기아메리카노</h3></div>
+                                                <div class="col-lg-3"></div> <!-- FOR SPACING -->
+                                                <div class="col-lg-3"></div> <!-- FOR SPACING -->
+                                                <div class="col-lg-2 menu-price"><h4>2,000원</h4></div>
+                                            </div>
+                                            <div class="row menu-desc-row">
+                                                <div class="col-lg-12 menu-desc">메뉴설명</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 arrow-row">
+                                            <img src="../img/arrowdown.png" style="width:25px" alt="arrow">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-3 bigdaddy03">
+                <div class="card menu-details border-dark">
+                    <div class="row" style="margin-top:20px;font-size:1.7rem">
+                        <div class="col-lg-12" style="background-color: #1c1c1b; color:#ffdc00">
+                            정보 입력
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form action=""></form> <!-- MENU INFO -->
+                                <div class="div div-borderless input-div">
+                                    <div> <!-- CATEGORY SELECTION -->
+                                        <div class="category" colspan="3" style="margin-bottom:10px;">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <span style="font-size:0.7rem;"><b>카테고리</b></span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-9 form-group">
+                                                    <select class="form-control border-warning caret" name="category" type="text" placeholder="찌개류">
+                                                        <option value="해당분류ID">국밥</option>
+                                                        <option value="해당분류ID">고기</option>
+                                                        <option value="해당분류ID">커피</option>
+                                                        <option value="해당분류ID">과일</option>
+                                                        <option value="해당분류ID">ㅇㅇ</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-1" style="text-align: left; margin-top:5px;">
+                                                    <img src="../img/plus_button.png" width="15px" alt="plus">
+                                                </div>
+                                                <div class="col-lg-1" style="text-align: left; margin-top:5px;">
+                                                    <img src="../img/minus_button.png" width="15px" alt="plus">
+                                                </div>
+                                            </div>
+                                                <div class="col-lg-1"></div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- CATEGORY SEL ENDS-->
+
+                                    <div> <!-- MENU NAME INPUT -->
+                                        <div class="menu-name" colspan="3" style="margin-bottom:20px;">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <span style="font-size:0.7rem"><b>메뉴이름</b></span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-9 border-bottom border-dark form-group">
+                                                    <input name="name" placeholder="이름입력" class="form-control border-0" type="text">
+                                                </div>
+                                                <div class="col-lg-3"></div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- MENU NAME INPUT ENDS -->
+
+                                    <div> <!-- MENU PRICE INPUT -->
+                                        <div class="price" style="margin-bottom:20px;">
+                                            <div class="row">
+                                                <span style="font-size:0.7rem"><b>메뉴가격</b></span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-9 form-group border-bottom border-dark">
+                                                    <input class="form-control border-0" name="price" type="text" placeholder="가격입력">
+                                                </div>
+                                                <div class="col-lg-3"><b>원</b></div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- MENU PRICE INPUT ENDS-->
+
+                                    <div> <!-- MENU DISCOUNT INPUT -->
+                                        <div class="discount" style="margin-bottom:20px;">
+                                            <div class="row">
+                                                <span style="font-size:0.7rem;"><b>할인</b></span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-5 form-group border-bottom border-dark">
+                                                    <input class="form-control border-0" name="discount" type="text" placeholder="할인입력">
+                                                </div>
+                                                <div class="col-lg-2"><b>원</b></div>
+                                                <div class="col-lg-1 vat form-group">
+                                                    <input type="checkbox" class="form-check-input" name="vat">
+                                                </div>
+                                                <div class="col-lg-3"><b>VAT포함</b></div>
+                                                <div class="col-lg-1"></div>
+                                            </div>
+                                        </div> 
+                                    </div> <!-- MENU DISCOUNT INPUT ENDS-->
+
+                                    <div> <!-- OPTIONS CHECKBOXES -->
+                                        <div class="menu-options" colspan="3" style="margin-bottom:20px;">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <span style="font-size:0.7rem"><b>옵션</b></span>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-2"></div>
+                                                <div class="col-lg-2 form-group">
+                                                    <input type="checkbox" class="form-check-input" name="options01">얼음
+                                                </div>
+                                                <div class="col-lg-2 form-group">
+                                                    <input type="checkbox" class="form-check-input" name="options02">샷
+                                                </div>
+                                                <div class="col-lg-2 form-group">
+                                                    <input type="checkbox" class="form-check-input" name="options03">당도
+                                                </div>
+                                                <div class="col-lg-2 form-group">
+                                                    <input type="checkbox" class="form-check-input" name="options04">등등
+                                                </div>
+                                                <div class="col-lg-2"></div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- OPTIONS CHECKBOXES ENDS -->
+
+                                    <div> <!-- MENU DESC INPUT -->
+                                        <div class="menudesc" style="margin-bottom:20px;">
+                                            <div class="row">
+                                                <span style="font-size:0.7rem"><b>메뉴설명</b></span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-9 form-group border-bottom border-dark">
+                                                    <textarea class="form-control border-0" name="desc" placeholder="뜨끈하게 한사발" rows="1"></textarea>
+                                                </div>
+                                                <div class="col-lg-3"></div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- MENU DESC ENDS-->
+
+                                    <div> <!-- MENU IMAGE AND TAGS INPUT -->
+                                        <div class="image_and_tags" style="margin-top:40px;">
+                                            <div class="row">
+                                                <span style="font-size:0.7rem"><b>메뉴 이미지</b></span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6 menu-img" style="text-align: center;">
+                                                    <img src="../img/purple.png" style="width:200px;" alt="menuimg"s>
+                                                </div>
+                                                <div class="col-lg-6 form-group">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <input type="checkbox" name="newmenu" class="form-check-input">신규메뉴
+                                                            <br>
+                                                            <input type="checkbox" name="recom" class="form-check-input">싸짱님추천
+                                                            <br>
+                                                            <input type="checkbox" name="dog" class="form-check-input">개쩌는거
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="margin-top:10px">
+                                                        <div class="col-lg-12">
+                                                            <label for="more_tag">추가 태그</label>
+                                                            <select id="more_tag" name="moretag" class="form-control" value="추가태그">추가태그
+                                                                <option value="123">핫템</option>
+                                                                <option value="324">엠디픽</option>
+                                                                <option value="345">잇템</option>
+                                                                <option value="345">힝</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" style="margin-top:10px">
+                                                        <div class="col-lg-12 form-group">
+                                                            <label for="upload">이미지 업로드</label>
+                                                            <input id="upload" type="file" class="form-control bg-warning">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> <!-- MENU IMAGE AND TAGS ENDS -->
+                                    
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row last_buttons" style="margin-top:30px;text-align: center;">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-5">
+                                <input type="reset" class="btn" value="다시입력" style="background-color: #1c1c1b;color:#ffdc00">
+                            </div>
+                            <div class="col-lg-5">
+                                <input type="button" class="btn" value="메뉴추가" style="background-color:#ffdc00; color:#1c1c1b">
+                            </div>
+                            <div class="col-lg-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/jquery.js"></script>
+</body>
+</html>
