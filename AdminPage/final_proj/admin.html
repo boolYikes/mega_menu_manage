@@ -8,119 +8,22 @@
 
     <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
-
+    <link rel="stylesheet" href="../css/dyrmwyrm.css"/>
 </head>
-<style>
-    @font-face {
-        font-family: 'SUITE-Regular';
-        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
-        font-weight: 600;
-        font-style: normal;
-    }
-   
-    /* THE COLUMNS AND GRIDS!! */
-    *{
-        font-family: 'SUITE-Regular', 'Franklin Gothic Medium', 'Arial Narrow';
-    }
-    .card{
-        background-color:#ffdc00;
-        margin:3px;
-        margin-bottom:10px;
-        height:calc(100vh*0.98);
-        box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.2) !important;
-        padding:10px;}
-    
-    .bigdaddy01, .bigdaddy02{
-        padding-right: 0px;}
-        .bigdaddy02 a{
-        color:#1c1c1b;}
-        .bigdaddy02 .card{
-            background-color: #ffffff;
-        }
-    .bigdaddy03 .card{
-        background-color: #ffffff;
-        color:#1c1c1b;
-        }
 
-    /* DO NOT GIVE THESE MARGINS. GIVE PARENT PADDINGS INSTEAD */
-    /* OTHERWISE THEY WILL OVERFLOW */
-
-    /* THIS IS THE UL */
-    .cat-names-list{
-        color:#fffff0;
-        list-style-type: none;}
-        .cat-names{
-            margin-top:10px;
-            margin-bottom:10px;
-            padding:10px;
-            padding-top:40px;
-            box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.1);
-            border-radius: 6px;
-            text-align: left;
-            background-color: #1c1c1b;
-        }
-        .cat-names:active, .cat-names a:active{
-            color:#1c1c1b;
-            background-color: #ffdc00;}
-        .cat-names:hover, .cat-names a:hover{
-            color:#1c1c1b;
-            background-color: #ffdc00;}
-
-    /* GET RID OF THE BLUE UNDERLINE */
-    a{
-        text-decoration:none;
-        color:inherit;
-    }
-
-    .menu-card{
-        background-color: #ffffff;
-        border-radius: 6px;
-        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.1);
-        margin:10px;
-        color:#1c1c1b;
-        margin-bottom:5px;}
-        .menu-card:hover{
-            background-color: #ffdc00;
-        }
-    .photo-zone{
-        display:inline;
-        padding-bottom: 25px;
-    }
-    .arrow-row{
-        text-align: end;
-    }
-    .menu-price{
-        color:rgb(255, 88, 79);
-    }
-    .management-row{
-        text-align: center;
-        color:#1c1c1b;}
-    .manage-menus, .manage-orders{
-        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.1);
-        border-radius: 3px;
-        margin-bottom: 50px;
-    }
-    .manage-menus:active, .manage-orders:active, .manage-menus:hover, .manage-orders:hover{
-        background-color: #1c1c1b1c;
-        color:#1c1c1b;
-    }
-    .home{
-        text-align: center;
-    }
-    .form-control{
-        padding-left:0px;
-    }
-    .menu-options .form-group{
-        padding-right:0px;padding-left:0px;
-    }
-    .last_buttons input{
-        border-width:50px;}
-        .last_buttons input.btn{
-            background-color:red;
-        }
-
-</style>
 <body>
+    <script>
+        // active 클래스 추가용 함수 (형제 태그에서 active없애고 클릭한거 active 토글함)
+        function cat_clicked(tag){
+            let siblings = $(tag).siblings();
+            for(i = 0 ; i < siblings.length ; i ++){
+                if($(siblings[i]).hasClass("active")){
+                    $(siblings[i]).toggleClass("active");
+                }
+            };
+            $(tag).toggleClass("active");
+        }
+    </script>
 
     <div class="content">
         <div class="row">
@@ -128,7 +31,7 @@
                 <div class="card">
 
                     <div class="row management-row">
-                        <div class="col-lg-6 manage-menus">
+                        <div class="col-lg-6 manage-menus" onclick="cat_clicked(this)">
                             <div class="row">
                                 <div class="col-lg-12 manage-menus-icon">
                                     <img src="../img/menu-icon.png" width="70px" style="margin-bottom: 10px;" alt="menu">
@@ -138,7 +41,7 @@
                                 <div class="col-lg-12 manage-menus-text"><b>메뉴관리</b></div>
                             </div>
                         </div>
-                        <div class="col-lg-6 manage-orders">
+                        <div class="col-lg-6 manage-orders" onclick="cat_clicked(this)">
                             <div class="row">
                                 <div class="col-lg-12 manage-orders-icon">
                                     <img src="../img/orders-icon.png" width="70px" style="margin-bottom: 10px;" alt="orders">
@@ -153,14 +56,14 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <ul class="cat-names-list">
-                                <li class="cat-names">
-                                    <a href="#">커피류</a>
+                                <li class="cat-names" onclick="cat_clicked(this)">
+                                    <span>커피류</span>
                                 </li>
-                                <li class="cat-names">
-                                    <a href="#">디저트류</a>
+                                <li class="cat-names" onclick="cat_clicked(this)">
+                                    <span>디저트류</span>
                                 </li>
-                                <li class="cat-names">
-                                    <a href="#">밥류</a>
+                                <li class="cat-names" onclick="cat_clicked(this)">
+                                    <span>밥류</span>
                                 </li>
                             </ul>
                         </div>
@@ -261,7 +164,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <form action=""></form> <!-- MENU INFO -->
+                            <form action=""> <!-- MENU INFO -->
                                 <div class="div div-borderless input-div">
                                     <div> <!-- CATEGORY SELECTION -->
                                         <div class="category" colspan="3" style="margin-bottom:10px;">
@@ -382,7 +285,7 @@
                                     </div> <!-- MENU DESC ENDS-->
 
                                     <div> <!-- MENU IMAGE AND TAGS INPUT -->
-                                        <div class="image_and_tags" style="margin-top:40px;">
+                                        <div class="image_and_tags" style="margin-top:60px;">
                                             <div class="row">
                                                 <span style="font-size:0.7rem"><b>메뉴 이미지</b></span>
                                             </div>
@@ -427,7 +330,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="row last_buttons" style="margin-top:30px;text-align: center;">
+                        <div class="row last_buttons" style="margin-top:90px;text-align: center;">
                             <div class="col-lg-1"></div>
                             <div class="col-lg-5">
                                 <input type="reset" class="btn" value="다시입력" style="background-color: #1c1c1b;color:#ffdc00">
@@ -445,5 +348,6 @@
     
     <script src="../js/bootstrap.js"></script>
     <script src="../js/jquery.js"></script>
+    
 </body>
 </html>
