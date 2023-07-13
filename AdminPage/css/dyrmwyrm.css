@@ -180,3 +180,18 @@ a{
     .last_buttons input.btn{
         background-color:red;
     }
+.appendage{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius:0px;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    background-color: #1c1c1b;
+    height:inherit;
+    text-align:center;
+    vertical-align: middle;
+    width:auto;
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:10px;
+    font-size:1px;
+}
