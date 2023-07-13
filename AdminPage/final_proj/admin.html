@@ -14,6 +14,7 @@
 <body>
     <script>
         // active 클래스 추가용 함수 (형제 태그에서 active없애고 클릭한거 active 토글함)
+        // 주의 :: 부트스트랩 active pseudo class 아님!!
         function cat_clicked(tag){
             let siblings = $(tag).siblings();
             for(i = 0 ; i < siblings.length ; i ++){
@@ -23,6 +24,26 @@
             };
             $(tag).toggleClass("active");
         }
+
+        // 주문내역 불러오는 함수
+        function load_this_and_rid_that(tag){
+            if($(tag).hasClass("manage-menus")){
+                console.log("menu clicked!!!");
+                //not 임 주의
+                if(!$(".bdgroupA").hasClass("active")){
+                    $(".bdgroupA").toggleClass("active");
+                    $(".bdgroupB").toggleClass("active");
+                    $(".cat-names").toggleClass("hidden");
+                }
+            }else if($(tag).hasClass("manage-orders")){
+                console.log("orders clicked!!!");
+                if(!$(".bdgroupB").hasClass("active")){
+                    $(".bdgroupB").toggleClass("active");
+                    $(".bdgroupA").toggleClass("active");
+                    $(".cat-names").toggleClass("hidden");
+                }
+            }
+        }
     </script>
 
     <div class="content">
@@ -31,7 +52,7 @@
                 <div class="card">
 
                     <div class="row management-row">
-                        <div class="col-lg-6 manage-menus" onclick="cat_clicked(this)">
+                        <div class="col-lg-6 manage-menus" onclick="cat_clicked(this);load_this_and_rid_that(this)">
                             <div class="row">
                                 <div class="col-lg-12 manage-menus-icon">
                                     <img src="../img/menu-icon.png" width="70px" style="margin-bottom: 10px;" alt="menu">
@@ -41,7 +62,7 @@
                                 <div class="col-lg-12 manage-menus-text"><b>메뉴관리</b></div>
                             </div>
                         </div>
-                        <div class="col-lg-6 manage-orders" onclick="cat_clicked(this)">
+                        <div class="col-lg-6 manage-orders" onclick="cat_clicked(this);load_this_and_rid_that(this)">
                             <div class="row">
                                 <div class="col-lg-12 manage-orders-icon">
                                     <img src="../img/orders-icon.png" width="70px" style="margin-bottom: 10px;" alt="orders">
@@ -88,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 bigdaddy02">
+            <div class="col-lg-7 bigdaddy02 bdgroupA active">
                 <div class="card">
 
                     <div class="row" id="rownum1">
@@ -155,7 +176,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-3 bigdaddy03">
+            <div class="col-lg-3 bigdaddy03 bdgroupA active">
                 <div class="card menu-details border-dark">
                     <div class="row" style="margin-top:20px;font-size:1.7rem">
                         <div class="col-lg-12" style="background-color: #1c1c1b; color:#ffdc00">
@@ -339,6 +360,156 @@
                                 <input type="button" class="btn" value="메뉴추가" style="background-color:#ffdc00; color:#1c1c1b">
                             </div>
                             <div class="col-lg-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ######### 주 문 관 리 영 역 ######### -->
+                <!-- 주문목록 -->
+                <div class="col-lg-7 bigdaddy04 bdgroupB">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="order-logs-title">
+                                    <h1>주문내역</h1>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- prolly need to move the styles to css-->
+                        <div class="row" style="margin-top:30px; padding:30px; overflow:auto;">
+                            <table class="table table-hover col-lg-12">
+                               <tr style="font-size:1.3rem;">
+                                    <td>주문번호</td>
+                                    <td>회원번호</td>
+                                    <td>메뉴가격</td>
+                                    <td>주문일시</td>
+                               </tr>
+                               <tr>
+                                    <td>12345</td>
+                                    <td>010-9470-3337</td>
+                                    <td>2,000원</td>
+                                    <td>2023/23/23</td>
+                               </tr>
+                               <tr>
+                                    <td>123456</td>
+                                    <td>010-0101-1010</td>
+                                    <td>85,000원</td>
+                                    <td>1212/12/12</td>
+                               </tr>
+                               
+                               <tr>
+                                    <td>12344</td>
+                                    <td>010-2121-2323</td>
+                                    <td>23,233</td>
+                                    <td>2023/20/23</td>
+                               </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 주문상세 -->
+                <div class="col-lg-3 bigdaddy05 bdgroupB">
+                    <div class="card border-dark menu-details">
+                        <div class="row" style="margin-top:20px;font-size:1.7rem">
+                            <div class="col-lg-12" style="background-color: #1c1c1b; color:#ffdc00">
+                                주문 정보
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top:20px;">
+                            <div class="col-lg-12">
+                                <div class="card fine-print" style="height: auto">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <span style="font-size:1.5rem" id="store_name">메가커피 팡주CGI점</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <span style="font-size:1.6rem;font-weight:900;" id="menu_price">9,900</span>
+                                            <span style="font-size:1.2rem">원</span>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:20px">
+                                        <div class="col-lg-12" style="text-align: end;">
+                                            <span id="payment_method">꿀꿀이저축카드(1234)</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7 pthead">
+                                            <span>상품명</span>
+                                        </div>
+                                        <div class="col-lg-2 pthead">
+                                            <span>수량</span>
+                                        </div>
+                                        <div class="col-lg-3 pthead">
+                                            <span>금액</span>
+                                        </div>
+                                    </div>
+                                    <div class="row pseudo-table menu_name">
+                                        <div class="col-lg-7">
+                                            <span id="the_name">아아</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <span id="the_amount">2</span>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <span id="the_price">3,500</span>
+                                        </div>
+                                    </div>
+                                    <div class="row pseudo-table menu_options">
+                                        <div class="col-lg-7">
+                                            >><span id="option_name">Tall</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <span id="option_amount">1</span>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <span id="option_price">-</span>
+                                        </div>
+                                    </div>
+                                    <div class="row summary">
+                                        <div class="col-lg-6 fine-print-left"> <span>주문합계</span> </div>
+                                        <div class="col-lg-6 fine-print-right"> <span id="sum_total">3,500</span> </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 fine-print-left"> <span>공급가액</span> </div>
+                                        <div class="col-lg-6 fine-print-right"> <span id="retail_val">3,182</span> </div>
+                                    </div>
+                                    <div class="row summary-ends">
+                                        <div class="col-lg-6 fine-print-left"> <span>주문합계</span> </div>
+                                        <div class="col-lg-6 fine-print-right"> <span id="the_vat">318</span> </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12" style="border-bottom:2px dotted #1c1c1b;padding-top:5px;padding-bottom:5px">
+                                            <span style="font-weight:900;font-size:1.7rem" id="total-total">3,500</span>
+                                        </div>
+                                    </div>
+                                    <div class="row trans">
+                                        <div class="col-lg-3 trans-sub">
+                                            <span>거래종류: </span>
+                                        </div>
+                                        <div class="col-lg-9 trans-sub">
+                                            <span id="transaction_type">카드거래</span>
+                                        </div>
+                                    </div>
+                                    <div class="row trans-ends">
+                                        <div class="col-lg-3 trans-sub">
+                                            <span>거래일시: </span>
+                                        </div>
+                                        <div class="col-lg-9 trans-sub">
+                                            <span id="transaction_date">2023-13-32</span>
+                                        </div>
+                                    </div>
+                                    <div class="row buttons-area">
+                                        <div class="col-lg-12">
+                                            <input type="button" class="btn" value="반품처리">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

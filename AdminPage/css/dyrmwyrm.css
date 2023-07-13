@@ -1,13 +1,65 @@
 @font-face {
     font-family: 'SUITE-Regular';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
-    font-weight: 600;
+    font-weight: 300,400,500,600,700,800,900;
     font-style: normal;
 }
+
+/* default scroll bar */
+::-webkit-scrollbar{
+    width:0.5em;
+}
+::-webkit-scrollbar-thumb{ /* don't seem to work */ 
+    color:black;
+    border-radius: 5px;
+}
+
+/* ORDERS DETAILS*/
+.fine-print>.row{
+    padding-left: 20px;
+    padding-right: 20px;}
+.pthead{
+    border-top:2px solid #1c1c1b;
+    border-bottom:2px solid #1c1c1b;
+}
+.pseudo-table{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.fine-print-left{
+    text-align:left;}
+.fine-print-right{
+    text-align:right;}
+.summary .col-lg-6{
+    padding-top:5px;
+    border-top:2px dotted #1c1c1b;}
+.summary-ends .col-lg-6{
+    padding-bottom:5px;
+    border-bottom:2px dotted #1c1c1b;}
+.trans .trans-sub{
+    padding-top: 5px;}
+.trans-ends .trans-sub{
+    padding-bottom:5px;
+    border-bottom:2px dotted #1c1c1b;
+}
+.buttons-area .col-lg-12{
+    padding:10px;
+    text-align: end;}
+    .buttons-area .col-lg-12 .btn{
+        height:75px;
+        width:150px;
+        background-color: #ffdc00;
+        font-weight: 900;
+        font-size:1.7rem;
+    }
 
 /* THE COLUMNS AND GRIDS!! */
 *{
     font-family: 'SUITE-Regular', 'Franklin Gothic Medium', 'Arial Narrow';
+    transition:ease-in-out 0.3s; /* can live without this */
+}
+.hidden{
+    visibility: hidden;
 }
 .card{
     background-color:#ffdc00;
@@ -17,14 +69,30 @@
     box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.2) !important;
     padding:10px;}
 
-.bigdaddy01, .bigdaddy02{
+/* MANAGE MENUS / MANAGE ORDERS TAB */
+.bdgroupA, .bdgroupB{
+    display: none;
+    opacity: 0;
+    transition: opacity 1s;}
+    .bdgroupA.active, .bdgroupB.active{
+        display: block;
+        opacity: 1;
+        transition: opacity 1s;
+    }
+
+/* THE MAJOR TABS */
+.bigdaddy01, .bigdaddy02, .bigdaddy04{
     padding-right: 0px;}
     .bigdaddy02 a{
     color:#1c1c1b;}
-    .bigdaddy02 .card{
-        background-color: #ffffff;
-    }
-.bigdaddy03 .card{
+    .bigdaddy02 .card, .bigdaddy04 .card{
+        background-color: #ffffff;}
+        .bigdaddy04 .card .row:first-child{
+            border-top:1px solid #1c1c1b;
+            border-bottom:1px solid #1c1c1b;
+            color:#1c1c1b;
+        }
+.bigdaddy03 .card, .bigdaddy05 .card{
     background-color: #ffffff;
     color:#1c1c1b;
     }
